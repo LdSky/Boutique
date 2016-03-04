@@ -1,17 +1,17 @@
 <?php
 
 /**
- * Connexion à la base de données à partir de variables globales
+ * Connexion ï¿½ la base de donnï¿½es ï¿½ partir de variables globales
  */     
 
 		function Connexion(){
 			global $bdServeur, $bdUser, $bdMdp, $bdBase ;
 			
-			mysql_connect($bdServeur, $bdUser, $bdMdp)
+			$connexion = mysqli_connect($bdServeur, $bdUser, $bdMdp)
 				or die("Erreur de connexion au serveur");
 				
-			mysql_select_db($bdBase)
-				or die("Erreur sur le nom de la base de donnée");
+			mysqli_select_db($connexion, $bdBase)
+				or die("Erreur sur le nom de la base de donnï¿½e");
 		}
 
 ?>
