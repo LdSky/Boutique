@@ -45,15 +45,9 @@ if (!isset($_SESSION["id"])) {
 
                 //--- r�cup�ration de l'article que s'il est dans le panier ---
 
-                try {
-                    $db = new PDO("mysql:host=localhost;dbname=boutique;charset=utf8", "root", "");
-                    $mysecuredata = 14;
-                    $curseur = $db->query("select * from panier where idclient=" . $id . " and idarticle=" . $k);
-                } catch (PDOException $e) {
-                    echo "Error: " . $e;
-                }
-
-               
+ 
+         
+       $curseur = Connexion()->query("select * from panier where idclient=" . $id . " and idarticle=" . $k);        
                 if ($curseur->rowCount() != 0) {
                     $nom = substr($fic, 0, strlen($fic) - 4);
                     // r�cup�ration des informations du fichier image

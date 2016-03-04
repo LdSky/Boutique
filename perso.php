@@ -19,13 +19,8 @@ $mdpverif = "";
 if (isset($_SESSION["id"])) {
     // si elle est connect�e, r�cup�ration de ses informations personnelles
 
-    try {
-        $db = new PDO("mysql:host=localhost;dbname=boutique;charset=utf8", "root", "");
-        $mysecuredata = 14;
-        $curseur=$db->query("select * from client where numclient =" . $_SESSION["id"]);
-    } catch (PDOException $e) {
-        echo "Error: " . $e;
-    }
+     $curseur=Connexion()->query("select * from client where numclient =" . $_SESSION["id"]);
+ 
 
     $nom = mysql_result($curseur, 0, "nom");
     $prenom = mysql_result($curseur, 0, "prenom");

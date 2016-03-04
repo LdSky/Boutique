@@ -17,18 +17,18 @@
     $chemin = "images/articles/" ;
     $flux = dir($chemin) ;
     while ($fic = $flux->read()) {
-      // vérifie si l'article est déjà présent dans le panier
+      // vï¿½rifie si l'article est dï¿½jï¿½ prï¿½sent dans le panier
       $articlePresent = false ;
       if (isset($_SESSION["id"])) {
-        $curseur = mysql_query("select * from panier where idclient=".$_SESSION["id"]." and idarticle=".$k) ;
-        $articlePresent = (mysql_num_rows($curseur)!=0) ;
+        $curseur =Connexion()->query("select * from panier where idclient=".$_SESSION["id"]." and idarticle=".$k) ;
+        $articlePresent = ($curseur->rowCount()!=0) ;
       }
       // parcours des fichiers des articles dans le dossier      
       $ficComplet = $chemin.$fic ;
       // si le fichier est une image
       if ($fic!="." && $fic!=".." && exif_imagetype ($ficComplet)) {
         $nom = substr($fic,0,strlen($fic)-4) ;
-        // récupération des informations du fichier image
+        // rï¿½cupï¿½ration des informations du fichier image
         $infos = exif_read_data($ficComplet, 0, true) ;
         $titre = enleveUnSurDeux($infos["IFD0"]["Title"]) ;
         $sujet = enleveUnSurDeux($infos["IFD0"]["Subject"]) ;
@@ -37,18 +37,18 @@
         $lesarticles .= '<tr>' ;    
         $lesarticles .= '<td class="td1"><img id="img'.$k.'" src="'.$ficComplet.'" alt="'.$titre.'" class="imgBoutique" /></td>' ; 
         $lesarticles .= '<td class="td2">'.$titre.'<br />'.$commentaire.'</td>' ;
-        $lesarticles .= '<td class="td3"><label id="lbl'.$k.'">'.$sujet.'</label>€</td>' ;
+        $lesarticles .= '<td class="td3"><label id="lbl'.$k.'">'.$sujet.'</label>ï¿½</td>' ;
         if ($articlePresent) {
           $lesarticles .= '<td class="td4"><img id="ajout'.$k.'" src="images/plus.jpg" alt="ajouter" style="visibility:hidden" /></td>' ;
         }else{
           $lesarticles .= '<td class="td4"><img id="ajout'.$k.'" src="images/plus.jpg" alt="ajouter" /></td>' ;
         }
         $lesarticles .= '</tr>' ;
-        // construction de la ligne dans le récapitulatif si panier en cours
+        // construction de la ligne dans le rï¿½capitulatif si panier en cours
         if ($articlePresent) {
           $laselection .= '<tbody id="b'.$k.'"><tr>' ;    
           $laselection .= '<td>'.$titre.'</td>' ; 
-          $laselection .= '<td>'.$sujet.'€</td>' ;
+          $laselection .= '<td>'.$sujet.'ï¿½</td>' ;
           $laselection .= '<td><img id="corb'.$k.'" src="images/corbeille.jpg" alt="supprimer" style="cursor:pointer" /></td>' ;
           $laselection .= '</tr><tbody>' ;            
         }
@@ -63,7 +63,7 @@
 </div>
 
 <div id="divSelection">
-  <div class="petitTitre">votre sélection</div><br />    
+  <div class="petitTitre">votre sï¿½lection</div><br />    
   <div class="petitTexte"> 
     <?php echo $laselection ?> 
   </div>                                                  
