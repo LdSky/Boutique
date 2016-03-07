@@ -1,23 +1,23 @@
 <?php       
 include_once("php/init.php") ;
-Connexion() ;
+$db = Connexion() ;
 
 //--- demande et contr�le d'identification ---
 if (isset($_GET["txtLogin"])) {
   $login = $_GET["txtLogin"] ;
   $mdp = $_GET["pwdMdp"] ;
-  
-  $link = mysqli_connect("localhost", "root", "", "boutique");
-  
+   
 
-  $curseur = mysqli_query($link, "select * from client where login='".$login."' and mdp='".$mdp."'") ;
-  if (mysqli_num_rows($curseur)!=0) {
-    $_SESSION["login"] = $login ;
-    $_SESSION["id"] = mysqli_result($curseur, 0, "numclient") ;
+  $curseur = "select * from client where login=:pLogin and mdp=:pwMdp" ;
+  $kappa = $db->prepare($curseur);
+  $kappa->bindValue(':pLogin', $login, PDO::PARAM_STR);
+  $kappa->bindValue(':pwMdp', $mdp, PDO::PARAM_STR);
+  $kappa->execute(); 
+  while ($client = $kappa->fetch(PDO::FETCH_OBJ)) {
+    $_SESSION["login"] = $login ; 
+    $_SESSION["id"] = $client->numclient;
     setcookie("login", $_SESSION["id"] * 353 - 27, time()+60*60*24*3600) ;
     echo $login ;
-  }else{
-    echo "" ;
   }
 
 //--- enregistrement de la couleur du tshirt ---
@@ -95,8 +95,7 @@ if (isset($_GET["txtLogin"])) {
 
 }else{
   // demande de d�connexion
-  session_unregister("login") ;
-  session_unregister("id") ;
+  session_destroy();
   setcookie("login", "", time() - 3600) ;
 }
 
