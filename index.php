@@ -14,7 +14,7 @@
       <!-- zone d'identification -->
       <div id="divIdent">
         <div id="divTextIdent">
-          <div class="petitTitre">dÈj‡ client</div><br />
+          <div class="petitTitre">d√©j√† client</div><br />
           <div class="petitTexte">
             login : <input id="txtLogin" name="txtLogin" type="text" maxlength="20" size="10" class="petitTexte" /><br />
             mdp : <input id="pwdMdp" name="pwdMdp" type="password" maxlength="20" size="4" class="petitTexte" />
@@ -25,7 +25,7 @@
           <div class="petitTitre">bienvenue</div><br />
           <div class="petitTexte">
             bonjour <label id="lblLogin"><?php echo $login ?></label><br /><br />
-            <a href="#" id="aDeconnecter">se dÈconnecter</a>
+            <a href="#" id="aDeconnecter">se d√©connecter</a>
           </div>
         </div>        
       </div>
@@ -67,7 +67,7 @@
       <!-- zone des 4 postits du menu -->
       <div id="divPostits">
         <?php
-          $postits = array( "tshirt" => "t-shirt personnalisÈ", 
+          $postits = array( "tshirt" => "t-shirt personnalisÔøΩ", 
                             "boutique" => "boutique",
                             "panier" => "votre panier",
                             "espace perso" => "votre espace perso") ;
@@ -81,13 +81,13 @@
         ?>
       </div>
 
-      <!-- zone des liens vers l'extÈrieur -->
+      <!-- zone des liens vers l'extÔøΩrieur -->
       <div id="divLiens">
         <div id="divTextLiens">
           <div class="petitTitre">mes liens favoris</div><br />
           <div class="petitTexte">
-            <a href="http://www.meteofrance.com">MÈtÈo France : les meilleures prÈvisions</a><br />
-            <a href="http://www.horlogeparlante.com">Horloge parlante : soyez ‡ l'heure</a>
+            <a href="http://www.meteofrance.com">M√©t√©o France : les meilleures pr√©visions</a><br />
+            <a href="http://www.horlogeparlante.com">Horloge parlante : soyez √† l'heure</a>
           
           </div>
         </div>
