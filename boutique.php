@@ -37,7 +37,7 @@
         $lesarticles .= '<tr>' ;    
         $lesarticles .= '<td class="td1"><img id="img'.$k.'" src="'.$ficComplet.'" alt="'.$titre.'" class="imgBoutique" /></td>' ; 
         $lesarticles .= '<td class="td2">'.$titre.'<br />'.$commentaire.'</td>' ;
-        $lesarticles .= '<td class="td3"><label id="lbl'.$k.'">'.$sujet.'</label>�</td>' ;
+        $lesarticles .= '<td class="td3"><label id="lbl'.$k.'">'.$sujet.'</label>€</td>' ;
         if ($articlePresent) {
           $lesarticles .= '<td class="td4"><img id="ajout'.$k.'" src="images/plus.jpg" alt="ajouter" style="visibility:hidden" /></td>' ;
         }else{
@@ -48,7 +48,7 @@
         if ($articlePresent) {
           $laselection .= '<tbody id="b'.$k.'"><tr>' ;    
           $laselection .= '<td>'.$titre.'</td>' ; 
-          $laselection .= '<td>'.$sujet.'�</td>' ;
+          $laselection .= '<td>'.$sujet.'€</td>' ;
           $laselection .= '<td><img id="corb'.$k.'" src="images/corbeille.jpg" alt="supprimer" style="cursor:pointer" /></td>' ;
           $laselection .= '</tr><tbody>' ;            
         }
@@ -63,7 +63,7 @@
 </div>
 
 <div id="divSelection">
-  <div class="petitTitre">votre s�lection</div><br />    
+  <div class="petitTitre">votre sélection</div><br />    
   <div class="petitTexte"> 
     <?php echo $laselection ?> 
   </div>                                                  

@@ -21,8 +21,8 @@ if (!isset($_SESSION["id"])) {
         <div class="petitTitre">PANIER</div><br />
         <div class="petitTexte">
             Votre panier contient les articles et le t-shirt que vous avez choisis :<br />
-            vous pouvez supprimer des �l�ments de votre s�lection.<br />
-            Pensez � enregistrer votre panier pour passer au paiement.
+            vous pouvez supprimer des éléments de votre sélection.<br />
+            Pensez à enregistrer votre panier pour passer au paiement.
         </div>
     </div>
 
@@ -65,7 +65,7 @@ if (!isset($_SESSION["id"])) {
                     // construction de la ligne dans le ticket
                     $leticket .= '<tbody id="b' . $i . '"><tr id="trticket' . $i . '">';
                     $leticket .= '<td class="td2">' . $titre . '</td>';
-                    $leticket .= '<td class="td3"><label id="prix' . $i . '">' . $sujet . '</label>�</td>';
+                    $leticket .= '<td class="td3"><label id="prix' . $i . '">' . $sujet . '</label>€</td>';
                     $leticket .= '</tr></tbody>';
                     $total += $sujet;
 
@@ -94,7 +94,7 @@ if (!isset($_SESSION["id"])) {
             // construction de la ligne dans le ticket
             $leticket .= '<tbody id="b' . $i . '"><tr id="trticket' . $i . '">';
             $leticket .= '<td class="td2">' . $titre . '</td>';
-            $leticket .= '<td class="td3"><label id="prix' . $i . '">' . $sujet . '</label>�</td>';
+            $leticket .= '<td class="td3"><label id="prix' . $i . '">' . $sujet . '</label>€</td>';
             $leticket .= '</tr></tbody>';
             $total += $prixTshirt;
         }
@@ -102,7 +102,7 @@ if (!isset($_SESSION["id"])) {
         // calcul du total du ticket
         $leticket .= '<tbody><tr id="trticket' . $i . '">';
         $leticket .= '<td class="td2"><strong>TOTAL :</strong></td>';
-        $leticket .= '<td class="td3"><strong><label id="totalTicket">' . $total . '</label>�</strong></td>';
+        $leticket .= '<td class="td3"><strong><label id="totalTicket">' . $total . '</label>€</strong></td>';
         $leticket .= '</tr></tbody>';
         $leticket .= "</table>";
 
