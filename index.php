@@ -67,7 +67,7 @@
       <!-- zone des 4 postits du menu -->
       <div id="divPostits">
         <?php
-          $postits = array( "tshirt" => "t-shirt personnalis�", 
+          $postits = array( "tshirt" => "t-shirt personnalisé", 
                             "boutique" => "boutique",
                             "panier" => "votre panier",
                             "espace perso" => "votre espace perso") ;
