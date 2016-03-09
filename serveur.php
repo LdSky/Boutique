@@ -54,7 +54,7 @@ if (isset($_GET["txtLogin"])) {
     if (isset($_SESSION["id"])) {
        // mysqli_query("delete from panier where idclient=" . $_SESSION["id"] . " and idarticle=" . $_POST["paniermoins"]);
         
-        $curseur = "delete from panier where idclient=:pid  and idarticle= . :ppaniermoins";
+        $curseur = "delete from panier where idclient=:pid  and idarticle= :ppaniermoins";
         $kappa = $db->prepare($curseur);
         $kappa->bindValue(':pid', $_SESSION["id"], PDO::PARAM_INT);
         $kappa->bindValue(':ppaniermoins', $_POST["paniermoins"], PDO::PARAM_INT);
@@ -117,7 +117,7 @@ if (isset($_GET["txtLogin"])) {
         $kappa->execute();
         
     } else {
-        $requete = 'insert into client values ("" , :pnom , :pprenom , :padr1, :padr2, :pcp , :pville , :pinfoslivraison , :ptel ,:pmail , :plogin ,:pmdp )';
+        $requete = 'insert into client values (" :pnom ", ":pprenom" , ":padr1", ":padr2", ":pcp" , ":pville ", ":pinfoslivraison" , ":ptel ",":pmail" , ":plogin ",":pmdp ")';
         //$requete = 'insert into client values ("", "' . $nom . '", "' . $prenom . '", "' . $adr1 . '", "' . $adr2 . '", "' . $cp . '", "' . $ville . '", "' . $infoslivraison . '", "' . $tel . '", "' . $mail . '", "' . $login . '", "' . $mdp . '")';
         $kappa = $db->prepare($requete);
         $kappa->bindValue(':pnom', $nom, PDO::PARAM_STR);
@@ -139,7 +139,7 @@ if (isset($_GET["txtLogin"])) {
     $_SESSION["login"] = $login;
     $_SESSION["id"] = $id;
     setcookie("login", $id * 353 - 27, time() + 60 * 60 * 24 * 3600);
-} else {
+} else {    
     // demande de d�connexion
     session_destroy();
     setcookie("login", "", time() - 3600);
